@@ -1,0 +1,120 @@
+#TeaLeaf Ruby Excercises Week 1
+
+#1 Use the "each" method of Array to iterate over 
+#[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], and print out each value.
+
+arr = [1, 2, 3, 4, 5, 6 ,7, 8, 9, 10]
+
+arr.each do |element| puts element end
+
+#2 Same as above, but only print out values greater than 5.
+
+arr = [1, 2, 3, 4, 5, 6 ,7, 8, 9, 10]
+
+arr.each do |element|
+  puts element if element > 5
+end 
+
+#3 Now, using the same array from #2, 
+#use the "select" method to extract all odd numbers into a new array.
+
+
+#(Select method will return a new array.  
+#It will only return elements of a block of code if they are true   
+# It goes through each of the elements and when we say it's true 
+#it returns a new element)
+
+new_arr = arr.select do |e|
+  e.odd
+end
+puts new_arr
+
+#4 Append "11" to the end of the array. Prepend "0" to the beginning.
+
+
+arr << 11
+arr.unshift(0)
+
+#5 Get rid of "11". And append a "3".
+
+arr << 11
+
+arr.pop
+arr << 3
+
+puts arr
+
+#6  Get rid of duplicates without specifically removing any one value. 
+
+
+#(some methods mutate the caller. uniq is like select. uniq! will mutate the caller?)
+
+arr << 11
+
+arr.pop
+arr << 3
+
+puts arr.uniq!
+puts arr
+
+#7 What's the major difference between an Array and a Hash?
+# Arrays are always ordered and are ordered by index sequence & use intergers 
+# Hashes don't guarantee order, use any type of object, and use curly braces. 
+#use symbols as hash keys as a habit.
+
+#8 Create a Hash using both Ruby 1.8 and 1.9 syntax.
+#use symbols as hash keys as a habit.
+
+h = {a: 1, b: 2, c: 3, d: 4}
+
+
+#9 Get the value of key "b".
+
+h [:b]
+
+#10 Add to this hash the key:value pair {e:5}
+
+h [:e] = 5
+
+#13 Remove all key:value pairs whose value is less than 3.5
+
+h = {a: 1, b: 2, c: 3, d: 4 e: 5}
+
+h.each do |k, v|
+  if v < 3.5
+    h.delete(k)
+
+  end
+end
+
+puts h
+
+
+
+#14 Can hash values be arrays? Can you have an array of hashes? (give examples)
+
+#A
+arr << h
+puts arr
+
+#B
+
+h[:f] = [11, 12, 13 {x: "hi" y: "there"}]
+
+#C
+
+h[:f] = [11, 12, 13 {x: "hi" y: "there"}]
+
+arr << h
+
+puts arr [10] [:f] [3] [:y]
+
+#15 Look at several Rails/Ruby online API sources and say which one your like best and why.
+
+
+http://api.rubyonrails.org/
+
+
+
+
+
