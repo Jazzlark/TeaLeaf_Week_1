@@ -77,7 +77,6 @@ if hit_or_stay == "2"
   puts "You chose to stay"
   break
 end
-end
 
 #hit 
 
@@ -94,6 +93,7 @@ elsif mytotal > 21
   puts "Sorry, it looks like you lose!"
   exit
   end
+end
 
 #Dealer turn 
 
@@ -106,8 +106,8 @@ while dealertotal < 17
   #hit
   new_card = deck.pop
   puts "Dealing new card for dealer: #{new_card}"
-  dealcards << new_card
-  dealertotal = calculate_total (dealercards)
+  while mytotal < 21
+  dealertotal = calculate_total (dealcards)
   puts "Dealer total now #{dealertotal}"
 
 if dealertotal == 21
@@ -140,14 +140,4 @@ elsif dealertotal < mytotal
 else
   puts "It's a tie!"
 end
-exit
-    
-
-
-
-
-
-
-
-
-#
+exit 
