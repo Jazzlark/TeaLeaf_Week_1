@@ -1,0 +1,44 @@
+#Calculator
+
+puts " => I am your calculator! What is the first number you will be using?"
+
+num1 = gets.chomp
+
+puts "=> What is the second number?"
+
+num2 = gets.chomp
+
+puts "=> The first number was #{num1} and the second number was #{num2}."
+
+puts "=> Choose what operation you like to perform 1) add 2) subtract 3) multiply 4) divide " 
+
+#This is where I have a problem.....not sure if that is right...
+#but I must have other issues.
+
+ operation = gets.chomp
+
+if operation == "1" 
+	result = num1.to_i + num2.to_i 
+	operation = "add"
+elsif operation == "2"
+	result = num1.to_i - num2.to_i
+	operation = "subtract"
+elsif operation == "3"
+		result = num1.to_i * num2.to_i 
+		operation = "multiply"
+else 
+		result = num1.to_f / num2.to_f
+		operation = "divided by"
+
+  end
+
+
+		#puts "result of #{operation} is: #{result}"
+
+		puts "=> #{num1} #{operation} #{num2} is: #{result} "
+
+
+
+	
+
+
