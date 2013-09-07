@@ -69,13 +69,20 @@ if ! ['1', '2' ].include? (hit_or_stay)
   next
 end
 
+if hit_or_stay == '2'
+  puts "You chose to stay."
+  break
+end
+
+
+
 #hit 
 
 new_card = deck.pop
-puts "Dealing card to player: #{new_card} "
+  puts "Dealing card to player: #{new_card} "
 mycards << new_card
 mytotal = calculate_total (mycards) 
-puts "Yor total is now: #{mytotal}"
+puts "Your total is now: #{mytotal}"
 
 if mytotal == 21
   puts "Congratulations!  You won!"
@@ -97,10 +104,9 @@ while dealertotal < 17
   #hit
   new_card = deck.pop
   puts "Dealing new card for dealer: #{new_card}"
-  while mytotal < 21
-  end
-  dealertotal = calculate_total (dealcards)
-  puts "Dealer total now #{dealertotal}"
+  dealercards << new_card
+  dealertotal = calculate_total (dealercards)
+  puts "Dealer total is now #{dealertotal}"
 
 
 if dealertotal == 21
@@ -120,16 +126,20 @@ dealercards.each do |card|
 end
 puts ""
 
+
 puts "Your cards:"
 mycards.each do |card|
   puts "=> #{card}"
-end 
-puts ""
+end
+  puts ""
 
 if dealertotal > mytotal
-  puts "Sorry, dealer wins and you LOSE!!  Ha ha ha!!"
+  put "Sorry, dealer wins."
 elsif dealertotal < mytotal
-  puts "You're the winner. Yay for you! "
+  puts "Congratulations, you won!  OH YEAHHHHHHH!!!"
 else
   puts "It's a tie!"
 end
+exit
+  
+
