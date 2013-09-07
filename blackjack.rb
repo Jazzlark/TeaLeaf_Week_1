@@ -1,7 +1,7 @@
 #BlackJack
 
 def calculate_total (cards) 
-# [['H', '3 ]]
+# [['H', '3 ] [ 'S' 'Q']
 arr = cards.map {|e| e [1] }
 
 total = 0
@@ -47,10 +47,6 @@ dealercards << deck.pop
 dealertotal = calculate_total (dealercards)
 mytotal = calculate_total (mycards)
 
-
-#puts "mycards is: " + mycards.to_s
-#puts "dealercards is: " = dealercards.to_s
-
 # Show Cards 
 
 puts "Dealer has: #{dealercards[0]} and #{dealercards[1]}, for a total of #{dealertotal}"
@@ -65,23 +61,18 @@ if mytotal == 21
 end
 
 while mytotal < 21 
-puts "What would you like to do? 1) hit 2) stay "
-hit_or_stay = gets.chomp
+  puts "What would you like to do? 1) hit 2) stay "
+  hit_or_stay = gets.chomp
 
-if ! ['1', '2'].include? (hit_or_stay)
+if ! ['1', '2' ].include? (hit_or_stay)
   puts "Error: you must enter 1 or 2."
   next
-end
-
-if hit_or_stay == "2"
-  puts "You chose to stay"
-  break
 end
 
 #hit 
 
 new_card = deck.pop
-puts "Dealing card to player #{new_card}"
+puts "Dealing card to player: #{new_card} "
 mycards << new_card
 mytotal = calculate_total (mycards) 
 puts "Yor total is now: #{mytotal}"
@@ -107,8 +98,10 @@ while dealertotal < 17
   new_card = deck.pop
   puts "Dealing new card for dealer: #{new_card}"
   while mytotal < 21
+  end
   dealertotal = calculate_total (dealcards)
   puts "Dealer total now #{dealertotal}"
+
 
 if dealertotal == 21
   puts "Sorry, dealer hit blackjack. You lose."
@@ -140,4 +133,3 @@ elsif dealertotal < mytotal
 else
   puts "It's a tie!"
 end
-exit 
